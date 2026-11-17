@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Birthday Experience</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="particulas" aria-hidden="true"></div>
+
+<!-- HUD: nivel y XP -->
+<div class="hud">
+    <span class="hud-nivel" id="hudNivel">🎮 NIVEL 1</span>
+    <div class="hud-barra"><div class="hud-relleno" id="hudRelleno"></div></div>
+    <span class="hud-xp" id="hudXp">0 XP</span>
+</div>
+
+<div class="logro" id="logro"><b>🏆 LOGRO DESBLOQUEADO</b><span id="logroTexto"></span></div>
+
+<!-- ESCENA 1: INTRODUCCION -->
+<section id="inicio" class="escena activa">
+    <div class="estrellas">🎮 ✦ 🕹️ ✦ 🎮</div>
+
+    <p class="subtitulo">PLAYER 1 · JOHN</p>
+
+    <h1>THE BIRTHDAY<br>
+        <span>EXPERIENCE</span>
+    </h1>
+
+    <p class="mensaje">
+        Hay historias que merecen celebrarse...
+        y esta es una de ellas.
+    </p>
+
+    <button onclick="irEscena('regalo')">▶ PRESS START</button>
+
+    <p class="creditos">A LITTLE SURPRISE MADE WITH LOVE</p>
+</section>
+
+<!-- ESCENA 2: REGALO -->
+<section id="regalo" class="escena">
+    <p class="subtitulo">NIVEL 01</p>
+    <h2>Hay algo para ti...</h2>
+
+    <div class="caja" onclick="abrirRegalo()">🎁</div>
+
+    <p id="mensajeRegalo">Toca el cofre para descubrir tu sorpresa.</p>
+
+    <button onclick="irEscena('recuerdos')">CONTINUAR →</button>
+</section>
+
+<!-- ESCENA 3: UNIVERSO DE RECUERDOS -->
+<section id="recuerdos" class="escena">
+    <p class="subtitulo">NIVEL 02</p>
+    <h2>Un pequeño universo para John</h2>
+
+    <p>Hay personas que hacen especiales hasta los días más normales.</p>
+
+    <div class="recuerdos-grid">
+        <div class="recuerdo">
+            <span>🌟</span>
+            <h3>Las risas</h3>
+            <p>Por cada momento divertido que merece repetirse.</p>
+        </div>
+        <div class="recuerdo">
+            <span>🎮</span>
+            <h3>Las aventuras</h3>
+            <p>Por todas las locuras que todavía nos faltan vivir.</p>
+        </div>
+        <div class="recuerdo">
+            <span>🤝</span>
+            <h3>La amistad</h3>
+            <p>Por esas personas que llegan y se vuelven especiales.</p>
+        </div>
+        <div class="recuerdo">
+            <span>⚡</span>
+            <h3>Los momentos</h3>
+            <p>Porque no hacen falta fotografías para guardar recuerdos.</p>
+        </div>
+    </div>
+
+    <button onclick="irEscena('carta')">SIGUIENTE →</button>
+</section>
+
+<!-- ESCENA 4: CARTA -->
+<section id="carta" class="escena">
+    <p class="subtitulo">NIVEL 03</p>
+    <h2>Una carta para John 💌</h2>
+
+    <div class="carta">
+        <p>Estimado hermano John:</p>
+
+        <p>
+            Hoy quería hacer algo diferente para ti.
+            No quería regalarte solamente un objeto,
+            sino crear algo que pudieras abrir y recordar.
+        </p>
+
+        <p>
+            Gracias por ser parte de esta amistad,
+            por los momentos compartidos y por todas
+            las experiencias que todavía nos esperan.
+        </p>
+
+        <p>
+            Espero que este nuevo año de vida te traiga
+            muchas oportunidades, alegrías, sueños
+            cumplidos y motivos para sonreír.
+        </p>
+
+        <p>
+            Nunca dejes de ser tú.
+            ¡Feliz cumpleaños, John! ❤️
+        </p>
+
+        <p class="firma">Con mucho cariño, alguien que te aprecia.</p>
+    </div>
+
+    <button onclick="irEscena('juego')">CONTINUAR →</button>
+</section>
+
+<!-- ESCENA 5: JUEGO -->
+<section id="juego" class="escena">
+    <p class="subtitulo">NIVEL 04 · BOSS FIGHT</p>
+    <h2>¿Cuánto sabes?</h2>
+
+    <div class="juego-card">
+        <p id="progreso">Pregunta 1 de 10</p>
+        <div class="vida"><div id="barraJuego"></div></div>
+
+        <h3 id="pregunta"></h3>
+
+        <div id="opciones" class="opciones"></div>
+
+        <p id="resultadoJuego"></p>
+    </div>
+</section>
+
+<!-- ESCENA 6: REGALOS -->
+<section id="premios" class="escena">
+    <p class="subtitulo">NIVEL 05 · LOOT</p>
+
+    <h2>40 pequeños regalos para ti 🎁</h2>
+
+    <p>
+        No son regalos materiales,
+        son 40 pequeños recordatorios
+        que quiero dejarte.
+    </p>
+
+    <div class="contador-regalos">
+        <span id="contadorRegalos">0</span> / 40 DESCUBIERTOS
+    </div>
+
+    <div id="regalosGrid" class="regalos-grid"></div>
+
+    <div id="contenidoCupon" class="carta">
+        <h3>Un regalo te está esperando...</h3>
+        <p>Elige cualquiera de las cajitas para descubrirlo. ❤️</p>
+    </div>
+
+    <button onclick="irEscena('final')">VER EL FINAL →</button>
+</section>
+
+<!-- ESCENA 7: FINAL -->
+<section id="final" class="escena">
+    <div class="estrellas">🏆 🎂 🏆</div>
+
+    <p class="subtitulo">FINAL LEVEL</p>
+
+    <h1>HAPPY<br><span>BIRTHDAY hermano JOHN!</span></h1>
+
+    <div class="pastel" onclick="apagarVelas()">
+        🎂
+        <p>Toca el pastel y pide un deseo.</p>
+    </div>
+
+    <p id="deseo">Que todos tus sueños encuentren su camino.</p>
+
+    <h2>¡Feliz cumpleaños! ❤️</h2>
+
+    <button onclick="irEscena('inicio')">↻ JUGAR DE NUEVO</button>
+</section>
+
+<audio id="musica" loop>
+    <source src="assets/musica/cumple.mp3" type="audio/mpeg">
+</audio>
+
+<button id="botonMusica" class="boton-musica" onclick="controlarMusica()">♫ ACTIVAR MÚSICA</button>
+
+<script src="script.js"></script>
+</body>
+</html>
